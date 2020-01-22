@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function drawHand(ctx, player) {
+var cX;
+var cY;
+            if (player === 1) {
+                cX = 800;
+                cY = 10;
+            } else {
+                cX = 800;
+                cY = 490;
+            }
+            ctx.fillStyle = "rgb(200,0,0)";
+            for (let i = 0; i < 2; i++) {
+                for (let j = 0; j < 10; j++) {
+                    ctx.fillRect(40 * j + cX, cY + 55 * i, 30, 50);  //x y width height
+                }
+            }
+        }
+
+        function drawPlayer(ctx, player) {
+            drawHand(ctx, player);
+        }
+
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                console.log("load complete!");
+                var ctx = canvas.getContext('2d');
+
+                drawPlayer(ctx, 1);
+                drawPlayer(ctx, 2);
+            }
+        }
+    </script>
+</head>
+<body onload="draw();">
+<canvas class="border" id="canvas" width="1200" height="600"></canvas>
+</body>
+</html>
