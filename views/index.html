@@ -5,12 +5,15 @@
     <title>Madgo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.1/fabric.min.js"></script>
     <script type="text/javascript">
-        var Card = fabric.util.createClass(fabric.Rect, {
-            initialize: function (options) {
+
+        let Card = fabric.util.createClass(fabric.Rect, {
+            initialize: function (month, no, options) {
                 this.callSuper('initialize', options);
                 this.fill = 'red';
                 this.width = 30;
                 this.height = 50;
+                this.month = month;
+                this.no = no;
             },
         });
 
@@ -41,7 +44,7 @@
 
                 for (let i = 0; i < 2; i++) {
                     for (let j = 0; j < 5; j++) {
-                        let card = new Card({
+                        let card = new Card(0, 0, {
                             left: 40 * j + cX,
                             top: cY + 55 * i
                         });
@@ -91,17 +94,32 @@
             }
         }
 
+        class Game {
+            constructor() {
+                this.init();
+            }
 
-        function draw() {
-            console.log("load complete!");
-            let canvas = new fabric.Canvas('canvas');
+            init() {
+                this.canvas = new fabric.Canvas('canvas');
+                //TODO 카드 초기화, 카드 배분, 가운데 펼치기
 
-            new Player(1, canvas).draw();
-            new Player(2, canvas).draw();
+                this.player1 = new Player(1, this.canvas);
+                this.player2 = new Player(2, this.canvas);
+
+            }
+
+            draw() {
+                this.player1.draw();
+                this.player2.draw();
+            }
+        }
+
+        function start() {
+            new Game().draw();
         }
     </script>
 </head>
-<body onload="draw();">
+<body onload="start();">
 <canvas class="border" id="canvas" width="1200" height="600"></canvas>
 </body>
 </html>
