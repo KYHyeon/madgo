@@ -1,0 +1,14 @@
+div.container{
+    width: 900px;
+    height: 610px;
+    text-align : center;
+    margin:35px auto;
+    font-family: 'Raleway', sans-serif;
+}
+h2{
+    background-color: #326051;
+    padding: 30px 35px;
+    margin: -10px -50px;
+    text-align:center;
+    border-radius: 10px 10px 0 0;
+}
