@@ -1,6 +1,6 @@
-import Broker from 'Broker.js'
-import User from 'User.js'
-import Dealer from 'Dealer.js'
+import Broker from './user/Broker.js'
+import User from './user/User.js'
+import Dealer from './Dealer'
 
 class Game {   // In index, game.start => Generating
 
@@ -16,3 +16,5 @@ class Game {   // In index, game.start => Generating
 
 
 }
+
+module.exports = Game;

@@ -20,3 +20,5 @@ class Player{
         this.foot = foot;
     }
 }
+
+module.exports = Player;
