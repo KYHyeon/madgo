@@ -1,4 +1,4 @@
-class label {
+class Label {
     //     {
     //       "id": 11,
     //       "information": [
@@ -6,7 +6,7 @@ class label {
     //           "month": 1,
     //           "scores": 0,
     //           "light": true,
-    //           "rgb": [
+    //           "RGB": [
     //             {
     //               "red": false,
     //               "green": false,
@@ -31,3 +31,5 @@ class label {
         this.animal = animal;
     }
 }
+
+module.exports = Label;

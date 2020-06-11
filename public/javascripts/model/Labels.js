@@ -1,4 +1,4 @@
-class labels {
+class Labels {
     data = [];
 
     constructor() {
@@ -13,3 +13,5 @@ class labels {
         // JSON.parse()
     }
 }
+
+module.exports = Labels

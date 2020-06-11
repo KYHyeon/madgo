@@ -21,3 +21,5 @@ class Deck{
 
     }
 }
+
+exports = Deck;
