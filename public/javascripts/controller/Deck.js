@@ -22,4 +22,4 @@ class Deck{
     }
 }
 
-module.exports = Deck;
+exports = Deck;

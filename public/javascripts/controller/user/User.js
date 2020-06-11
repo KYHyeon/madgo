@@ -6,4 +6,4 @@ class User extends Player{
     }
 }
 
-module.exports = User;
+exports = User;
