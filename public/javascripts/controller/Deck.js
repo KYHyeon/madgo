@@ -16,7 +16,6 @@ class Deck{
     shuffle(){
 
     }
-
     pop(){
 
     }
