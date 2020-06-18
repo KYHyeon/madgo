@@ -1,0 +1,15 @@
+export const Denomination = Object.freeze({
+    TWO: Symbol("2"),
+    THREE: Symbol("3"),
+    FOUR: Symbol("4"),
+    FIVE: Symbol("5"),
+    SIX: Symbol("6"),
+    SEVEN: Symbol("7"),
+    EIGHT: Symbol("8"),
+    NINE: Symbol("9"),
+    TEN: Symbol("10"),
+    J: Symbol("jack"),
+    Q: Symbol("queen"),
+    K: Symbol("king"),
+    A: Symbol("ace"),
+});

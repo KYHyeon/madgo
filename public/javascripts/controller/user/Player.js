@@ -15,8 +15,6 @@ export default class Player {
         this._foot = value;
     }
 
-    constructor(hand, foot) {
-        this._hand = hand;
-        this._foot = foot;
-    }
+    _hand = null;
+    _foot = null;
 }

@@ -1,15 +1,22 @@
 import Card from '../model/Card.js'
+import {Denomination} from "../model/Denomination.js";
+import {Suit} from "../model/Suit.js";
 
 export default class Deck {
-    _deck = new Array(55);
+    NUM_INIT_DECK = 55;
+    NUM_SPECIAL_CARD = 3;
+    _deck = new Array(this.NUM_INIT_DECK);
 
     constructor() {
-        for (let i = 0; i < 13; i++) {
-            for (let j = 0; j < 4; j++) {
-                this.deck[i * 4 + j] = new Card(i + 1, j + 1);
+        let cnt = 0;
+        for (let denomination of Object.keys(Denomination)) {
+            for (let suit of Object.keys(Suit)) {
+                //TODO 반복문을 다 돌고도 더 돌아서 에러 발생
+                console.log(denomination + " " + suit)
+                this.deck[cnt++] = new Card(suit, denomination);
             }
         }
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < this.NUM_SPECIAL_CARD; i++) {
             this.deck.push(new Card())
         }
     }

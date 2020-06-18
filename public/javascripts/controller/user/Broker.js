@@ -1,7 +1,12 @@
 import Player from './Player.js'
 
 export default class Broker extends Player {
+    NUM_INIT_HAND = 10
+    NUM_INIT_FOOT = 0
+
     constructor() {
-        super(new Array(0), 0); //TODO 값 변경
+        super();
+        this.hand = new Array(this.NUM_INIT_HAND);
+        this.foot = this.NUM_INIT_FOOT;
     }
 }
