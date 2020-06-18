@@ -1,4 +1,4 @@
-class Labels {
+export default class Labels {
     data = [];
 
     constructor() {
@@ -13,5 +13,3 @@ class Labels {
         // JSON.parse()
     }
 }
-
-module.exports = Labels

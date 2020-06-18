@@ -6,120 +6,121 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.1/fabric.min.js"></script>
     <script type="text/javascript">
 
-        let Card = fabric.util.createClass(fabric.Rect, {
-            initialize: function (month, no, options) {
-                this.callSuper('initialize', options);
-                this.fill = 'red';
-                this.width = 30;
-                this.height = 50;
-                this.month = month;
-                this.no = no;
-            },
-        });
-
-        class Player {
-            constructor(no, canvas) {
-                this.canvas = canvas;
-                this.hand = [];
-                this.no = no;
-                this.nickname = no.toString(); //TODO 닉네임 수정
-                this.money = "100만냥";
-            }
-
-            draw() {
-                this.drawProfile();
-                this.drawHand();
-            }
-
-            drawHand() {
-                let cX;
-                let cY;
-                if (this.no === 1) {
-                    cX = 900;
-                    cY = 0;
-                } else {
-                    cX = 900;
-                    cY = 480;
-                }
-
-                for (let i = 0; i < 2; i++) {
-                    for (let j = 0; j < 5; j++) {
-                        let card = new Card(0, 0, {
-                            left: 40 * j + cX,
-                            top: cY + 55 * i
-                        });
-                        card.on('selected', function () {
-                            card.set('fill', 'blue');
-                        });
-                        this.canvas.add(card);
-                        this.hand.push(card);
-                    }
-                }
-            }
-
-            drawProfile() {
-                let cX;
-                let cY;
-                if (this.no === 1) {
-                    cX = 200;
-                    cY = 10;
-                } else {
-                    cX = 200;
-                    cY = 490;
-                }
-                this.profileImage = new fabric.Circle({
-                    left: cX,
-                    top: cY,
-                    radius: 50
-                });
-
-                this.profileImage.setGradient('fill', {
-                    x1: 0,
-                    y1: 0,
-                    x2: 0,
-                    y2: this.profileImage.height,
-                    colorStops: {
-                        0: '#000',
-                        1: '#fff'
-                    }
-                });
-
-                this.canvas.add(this.profileImage);
-
-                let txtNickname = new fabric.Text("Player " + this.nickname, {left: 100, top: cY + 50, fontSize: 20});
-                this.canvas.add(txtNickname);
-
-                let txtMoney = new fabric.Text(this.money, {left: 100, top: cY + 80, fontSize: 20});
-                this.canvas.add(txtMoney);
-            }
-        }
-
-        class Game {
-            constructor() {
-                this.init();
-            }
-
-            init() {
-                this.canvas = new fabric.Canvas('canvas');
-                //TODO 카드 초기화, 카드 배분, 가운데 펼치기
-
-                this.player1 = new Player(1, this.canvas);
-                this.player2 = new Player(2, this.canvas);
-
-            }
-
-            draw() {
-                this.player1.draw();
-                this.player2.draw();
-            }
-        }
-
-        function start() {
-            new Game().draw();
-        }
+        // let Card = fabric.util.createClass(fabric.Rect, {
+        //     initialize: function (month, no, options) {
+        //         this.callSuper('initialize', options);
+        //         this.fill = 'red';
+        //         this.width = 30;
+        //         this.height = 50;
+        //         this.month = month;
+        //         this.no = no;
+        //     },
+        // });
+        //
+        // class Player {
+        //     constructor(no, canvas) {
+        //         this.canvas = canvas;
+        //         this.hand = [];
+        //         this.no = no;
+        //         this.nickname = no.toString(); //TODO 닉네임 수정
+        //         this.money = "100만냥";
+        //     }
+        //
+        //     draw() {
+        //         this.drawProfile();
+        //         this.drawHand();
+        //     }
+        //
+        //     drawHand() {
+        //         let cX;
+        //         let cY;
+        //         if (this.no === 1) {
+        //             cX = 900;
+        //             cY = 0;
+        //         } else {
+        //             cX = 900;
+        //             cY = 480;
+        //         }
+        //
+        //         for (let i = 0; i < 2; i++) {
+        //             for (let j = 0; j < 5; j++) {
+        //                 let card = new Card(0, 0, {
+        //                     left: 40 * j + cX,
+        //                     top: cY + 55 * i
+        //                 });
+        //                 card.on('selected', function () {
+        //                     card.set('fill', 'blue');
+        //                 });
+        //                 this.canvas.add(card);
+        //                 this.hand.push(card);
+        //             }
+        //         }
+        //     }
+        //
+        //     drawProfile() {
+        //         let cX;
+        //         let cY;
+        //         if (this.no === 1) {
+        //             cX = 200;
+        //             cY = 10;
+        //         } else {
+        //             cX = 200;
+        //             cY = 490;
+        //         }
+        //         this.profileImage = new fabric.Circle({
+        //             left: cX,
+        //             top: cY,
+        //             radius: 50
+        //         });
+        //
+        //         this.profileImage.setGradient('fill', {
+        //             x1: 0,
+        //             y1: 0,
+        //             x2: 0,
+        //             y2: this.profileImage.height,
+        //             colorStops: {
+        //                 0: '#000',
+        //                 1: '#fff'
+        //             }
+        //         });
+        //
+        //         this.canvas.add(this.profileImage);
+        //
+        //         let txtNickname = new fabric.Text("Player " + this.nickname, {left: 100, top: cY + 50, fontSize: 20});
+        //         this.canvas.add(txtNickname);
+        //
+        //         let txtMoney = new fabric.Text(this.money, {left: 100, top: cY + 80, fontSize: 20});
+        //         this.canvas.add(txtMoney);
+        //     }
+        // }
+        //
+        // class Game {
+        //     constructor() {
+        //         this.init();
+        //     }
+        //
+        //     init() {
+        //         this.canvas = new fabric.Canvas('canvas');
+        //         //TODO 카드 초기화, 카드 배분, 가운데 펼치기
+        //
+        //         this.player1 = new Player(1, this.canvas);
+        //         this.player2 = new Player(2, this.canvas);
+        //
+        //     }
+        //
+        //     draw() {
+        //         this.player1.draw();
+        //         this.player2.draw();
+        //     }
+        // }
+        //
+        // function start() {
+        //     new Game().draw();
+        // }
     </script>
 </head>
-<body onload="start();">
+<body>
 <canvas class="border" id="canvas" width="1200" height="600"></canvas>
+<script type="module" src="/javascripts/index.js"></script>
 </body>
 </html>

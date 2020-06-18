@@ -1,4 +1,2 @@
-class Card {
+export default class Card {
 }
-
-module.exports = Card;

@@ -1,4 +1,4 @@
-class Label {
+export default class Label {
     //     {
     //       "id": 11,
     //       "information": [
@@ -31,5 +31,3 @@ class Label {
         this.animal = animal;
     }
 }
-
-module.exports = Label;

@@ -1,16 +1,16 @@
 import Broker from './user/Broker.js'
 import User from './user/User.js'
-import Dealer from './Dealer'
+import Dealer from './Dealer.js'
 
-class Game {   // In index, game.start => Generating
+export default class Game {   // In index, game.start => Generating
     _userA = new User;
     _userB = new User;
     _broker = new Broker;
 
     _dealer = new Dealer(this._broker, this._userA, this._userB);
 
-    constructor(){
-
+    constructor() {
+        console.log("Game 생성")
     }
 
     get userA() {
@@ -45,5 +45,3 @@ class Game {   // In index, game.start => Generating
         this._dealer = value;
     }
 }
-
-exports = Game;

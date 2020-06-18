@@ -1,24 +1,22 @@
-class Player{
+export default class Player {
+    get hand() {
+        return this._hand;
+    }
+
+    set hand(value) {
+        this._hand = value;
+    }
+
+    get foot() {
+        return this._foot;
+    }
+
+    set foot(value) {
+        this._foot = value;
+    }
+
     constructor(hand, foot) {
-        this.hand = hand;
-        this.foot = foot;
-    }
-
-    getHand() {
-        return this.hand;
-    }
-
-    setHand(hand) {
-        this.hand = hand;
-    }
-
-    getFoot() {
-        return this.foot;
-    }
-
-    setFoot(foot) {
-        this.foot = foot;
+        this._hand = hand;
+        this._foot = foot;
     }
 }
-
-exports = Player;
