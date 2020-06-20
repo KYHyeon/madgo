@@ -14,7 +14,16 @@ class Deck{
     }
 
     shuffle(){
-
+        /* Using Durstenfeld shuffle algorithm */
+        a = new Array(3);
+        a[2] = 2;
+        for(var i=this.deck.length - 1; i>0; i--){
+            var j = Math.floor(Math.random() * (i+1));
+            var temp = this.deck[i];
+            this.deck[i] = this.deck[j];
+            this.deck[j] = temp;
+        }
+        console.log(a);
     }
     pop(){
 
