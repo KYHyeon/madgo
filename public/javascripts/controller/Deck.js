@@ -11,14 +11,15 @@ export default class Deck {
         let cnt = 0;
         for (let denomination of Object.keys(Denomination)) {
             for (let suit of Object.keys(Suit)) {
-                //TODO 반복문을 다 돌고도 더 돌아서 에러 발생
+
                 console.log(denomination + " " + suit)
                 this.deck[cnt++] = new Card(suit, denomination);
             }
         }
-        for (let i = 0; i < this.NUM_SPECIAL_CARD; i++) {
-            this.deck.push(new Card())
-        }
+        //TODO Special card 처리
+        // for (let i = 0; i < this.NUM_SPECIAL_CARD; i++) {
+        //     this.deck.push(new Card())
+        // }
     }
 
     shuffle() {
