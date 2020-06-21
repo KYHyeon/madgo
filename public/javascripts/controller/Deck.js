@@ -11,7 +11,6 @@ export default class Deck {
         let cnt = 0;
         for (let denomination of Object.keys(Denomination)) {
             for (let suit of Object.keys(Suit)) {
-
                 console.log(denomination + " " + suit)
                 this.deck[cnt++] = new Card(suit, denomination);
             }
