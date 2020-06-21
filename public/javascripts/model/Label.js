@@ -1,33 +1,17 @@
-export default class Label {
-    //     {
-    //       "id": 11,
-    //       "information": [
-    //         {
-    //           "month": 1,
-    //           "scores": 0,
-    //           "light": true,
-    //           "RGB": [
-    //             {
-    //               "red": false,
-    //               "green": false,
-    //               "blue": false
-    //             }
-    //           ],
-    //           "band": false,
-    //           "cater": false,
-    //           "animal": false
-    //         }
-    //       ]
-    //     }
-
-    constructor(id, month, scores, light, rgb, band, cater, animal) {
-        this.id = id;
-        this.month = month;
-        this.scores = scores;
-        this.light = light;
-        this.rgb = rgb;
-        this.band = band;
-        this.cater = cater;
-        this.animal = animal;
-    }
-}
+import Labels from "./Labels.js"
+// export default class Label {
+    
+    
+//     constructor(id, month, scores, light, rgb, band, cater, animal) {
+//         this.id = id;
+//         this.month = month;
+//         this.scores = scores;
+//         this.light = light;
+//         this.rgb = rgb;
+//         this.band = band;
+//         this.cater = cater;
+//         this.animal = animal;
+//     }
+// }
+const labels = new Labels();
+console.log(labels.data);

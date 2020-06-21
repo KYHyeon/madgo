@@ -12,7 +12,7 @@ export default class Deck {
         for (let denomination of Object.keys(Denomination)) {
             for (let suit of Object.keys(Suit)) {
                 //TODO 반복문을 다 돌고도 더 돌아서 에러 발생
-                console.log(denomination + " " + suit)
+                //console.log(denomination + " " + suit)
                 this.deck[cnt++] = new Card(suit, denomination);
             }
         }

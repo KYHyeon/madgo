@@ -1,6 +1,14 @@
 export const Suit = Object.freeze({
-    SPADE: Symbol("spade"),
-    DIAMOND: Symbol("diamond"),
-    HEART: Symbol("heart"),
-    CLUB: Symbol("club")
+    JANUARY: Symbol("Pinus densiflora"),
+    FEBRUARY: Symbol("prunusmume"),
+    MARCH: Symbol("prunus"),
+    APRIL: Symbol("Lespedezabicolor_black"),
+    MAY: Symbol("Orchidaceae"),
+    JUNE: Symbol("Paeoniasuffruticosa"),
+    JULY: Symbol("Lespedezabicolor_red"),
+    AUGUST: Symbol("Miscanthussinensis"),
+    SEPTEMBER: Symbol("Chrysanthemummorifolium"),
+    OCTOBER: Symbol("Acerpalmatum"),
+    NOVEMBER: Symbol("Paulowniacoreana"),
+    DECEMBER: Symbol("Salicaceae")
 });
