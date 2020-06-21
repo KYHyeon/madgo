@@ -1,7 +1,6 @@
 import Broker from './user/Broker.js'
 import User from './user/User.js'
 import Dealer from './Dealer.js'
-
 export default class Game {   // In index, game.start => Generating
     _userA = new User;
     _userB = new User;
@@ -44,4 +43,5 @@ export default class Game {   // In index, game.start => Generating
     set dealer(value) {
         this._dealer = value;
     }
+
 }
