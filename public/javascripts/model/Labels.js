@@ -1,4 +1,4 @@
-import Label from "./label.js"
+import Label from "./Label.js"
 
 export default class Labels {
     static data = {};
