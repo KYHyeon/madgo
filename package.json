@@ -19,10 +19,14 @@
   "devDependencies": {
     "@babel/preset-env": "^7.10.3",
     "babel-jest": "^26.0.1",
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "jquery": "^3.5.1"
   },
   "jest": {
     "type": "module",
-    "verbose": true
+    "verbose": true,
+    "setupFiles": [
+      "./test-env.js"
+    ]
   }
 }
