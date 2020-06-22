@@ -1,6 +1,4 @@
 import Card from '../model/Card.js'
-import {Denomination} from "../model/Denomination.js";
-import {Suit} from "../model/Suit.js";
 
 export default class Deck {
     NUM_INIT_DECK = 55;
@@ -9,10 +7,10 @@ export default class Deck {
 
     constructor() {
         let cnt = 0;
-        for (let denomination of Object.keys(Denomination)) {
-            for (let suit of Object.keys(Suit)) {
-                console.log(denomination + " " + suit)
-                this.deck[cnt++] = new Card(suit, denomination);
+        for (let month = 1; month <= 12; month++) {
+            for (let number = 1; number <= 4; number++) {
+                // console.log(month + " " + number)
+                this.deck[cnt++] = new Card(month, number);
             }
         }
         //TODO Special card 처리
