@@ -35,26 +35,6 @@ export default class Labels {
         }).fail(function(data){
             console.log("faile");
         })
-        // var httpRequest = new XMLHttpRequest();
-        // httpRequest.overrideMimeType("application/json");
-        // httpRequest.open('GET', '../../model/lable.json');
-        // httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        // httpRequest.send(null);
-
-        // httpRequest.onreadystatechange = function a() {
-        //     if (httpRequest.readyState === XMLHttpRequest.DONE) { //== 4
-        //         console.log("request done");
-        //     } else {
-        //         console.log("request not ready");
-        //     }
-
-        //     if (httpRequest.status === 200) {
-        //         console.log("no problem");
-        //     } else {
-        //         console.log("404, or 500");
-        //     }
-        // }
-        // console.info(JSON.parse(httpRequest.responseText));
-        // this.data = JSON.parse(httpRequest.responseText);
+        
     }
 }
