@@ -36,6 +36,9 @@ export default class Dealer {
         this._broker = broker;
         this._userA = userA;
         this._userB = userB;
+
+        console.log(this._deck)
+        this._deck.render()
     }
 
     shuffle() {
