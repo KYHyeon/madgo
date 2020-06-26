@@ -1,7 +1,8 @@
+import Label from "./Label.js"
+
 export default class Labels {
-    constructor() {
-        this.data = this.getLabelJson();
-    }
+    static data = {};
+    static init = false;
 
     // readJson() {
     //     // TODO 클라이언트단에서 파일입출력이 가능한가???
@@ -21,20 +22,33 @@ export default class Labels {
     //         console.log("Fail to load Label");
     //     });
     // }
-    getLabelJson() {
-        $.ajax({
-            url : '../../model/lable.json',
+    static getLabelJson() {
+        const $this = this;
+        return $.ajax({
+            url: '/label.json',
             dataType: "json",
             method: "GET"
-        }).done(function(json){
-            this.data = json;
-            console.log(this.data);
-            for(var key in this.data){
-                console.log(key, this.data[key]);
+        }).done(function (json) {
+            // console.log(json["label"])
+            for (const value of json["label"]) {
+                $this.data[value.id] = value.information;
+                // console.log(value.id,$this.data[value.id])
             }
-        }).fail(function(data){
-            console.log("faile");
+
+            $this.init = true;
+
+        }).fail(function (data) {
+            console.log("fail");
         })
         
+    }
+
+    static make_label(id) {
+        // console.log(id)
+        if (this.init) {
+            // console.log(this.data[id])
+            return new Label(this.data[id])
+        }
+        console.error("Labels.js must already be initialized before use!")
     }
 }
