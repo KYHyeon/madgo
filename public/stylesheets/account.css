@@ -1,14 +1,69 @@
-div.container{
-    width: 900px;
-    height: 610px;
+html { width:100%; height:100%;}
+body{
+    background : radial-gradient(circle, #FFE45C, #00DB5F, #2d9e6e );
+}
+.container{
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top:0; right:0; bottom:0; left:0;
+    display:flex;
+    align-items:center;
+    justify-content : center;
+
+    display:-webkit-flex;
+    -webkit-align-item:center;
+    -webkit-justify-content:center;
+
     text-align : center;
-    margin:35px auto;
     font-family: 'Raleway', sans-serif;
 }
-h2{
-    background-color: #326051;
-    padding: 30px 35px;
-    margin: -10px -50px;
-    text-align:center;
-    border-radius: 10px 10px 0 0;
+
+
+.content1
+{
+    color: black;
+    padding-top:5%;
+    padding-bottom:1%;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 485px;    
+    margin-left:auto;
+    margin-right: auto;
+
+    background-color: #dadbdb;
+    border-radius: 50px;
+    opacity: 0.8;
+}
+
+/* return 아이콘과 제목 부분 */
+#return_page{
+    font-size: 3rem;
+    color:yellow;
+}
+.title{
+    width:100%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right:auto;
+}
+.title > p{
+    font-size: 3rem;
+}
+
+/* form 부분 */
+.form-group #inputname{
+    width:100%; 
+    text-align:left;
+    margin-left:1%;
+    margin-bottom: 2%;
+}
+.form-group div{
+    width:100%;
+    margin-bottom: 5%;
+}
+#startBtn{
+    margin-left: 0px;
+    text-align: center;
 }
