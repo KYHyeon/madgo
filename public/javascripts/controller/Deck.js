@@ -34,4 +34,30 @@ export default class Deck {
     set deck(value) {
         this._deck = value;
     }
+
+    render() {
+        const c = document.getElementById("canvas");
+        const ctx = c.getContext("2d");
+
+        let i = 0;
+        let j = 0;
+
+        const w = 50;
+        const h = 50;
+
+        for (let card of this.deck) {
+            if (!card instanceof Card) {
+                console.log("Invalid Type" + card.toString())
+            }
+
+            if (j === 10) {
+                j = 0;
+                i++;
+            }
+
+            console.log(card)
+            card.render(ctx, (w + 10) * j, (h + 10) * i, w, h);
+            j++;
+        }
+    }
 }
