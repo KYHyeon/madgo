@@ -2,17 +2,18 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+var logger = require('morgan');          // log module
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var homeRouter = require('./routes/home');
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'ejs');app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 
@@ -20,10 +21,18 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); //정적 파일 제공 절대경로 사용
 
+
+/*---------Routing---------*/
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+//app.use('/home', homeRouter); //이건 왜 안될까
+
+app.use('/home', (req, res) =>{
+  res.render('home.html');    //path by view engine setup
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
