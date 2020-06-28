@@ -13,9 +13,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'ejs');
-
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -27,11 +24,7 @@ app.use(express.static(path.join(__dirname, 'public'))); //정적 파일 제공 
 /*---------Routing---------*/
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-//app.use('/home', homeRouter); //이건 왜 안될까
-
-app.use('/home', (req, res) =>{
-  res.render('home.html');    //path by view engine setup
-});
+app.use('/home', homeRouter);
 
 
 // catch 404 and forward to error handler
