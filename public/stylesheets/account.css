@@ -53,17 +53,28 @@ body{
 }
 
 /* form 부분 */
-.form-group #inputname{
+.form-group .control-label{
     width:100%; 
     text-align:left;
     margin-left:1%;
     margin-bottom: 2%;
 }
+
 .form-group div{
     width:100%;
-    margin-bottom: 5%;
 }
 #startBtn{
     margin-left: 0px;
     text-align: center;
+}
+
+/* 생성된 Hello ID*/
+#helloID{
+    font-family : "돋움";
+    font-weight : bold;
+    font-size: large;
+    margin-top: 5%;
+    margin-bottom:5%;
+    color : #088A08;
+
 }
