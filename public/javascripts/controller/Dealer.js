@@ -42,10 +42,10 @@ export default class Dealer {
     }
 
     shuffle() {
-        this.deck.shuffle();
+        this._deck.shuffle();
     }
 
     hand_out(destination, n) {
-        this.destination.setHand(deck.pop(n));
+        destination.hand(this._deck.shift(n));
     }
 }

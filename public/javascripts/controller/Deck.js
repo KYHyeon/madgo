@@ -31,9 +31,14 @@ export default class Deck {
 
     /**
      * Pop first card and return in deck Array
+     * param n: shift n cards
      */
-    shift() {
-        return this._deck.shift();
+    shift(n) {
+        let returnArr = []
+        for (let i = 0; i < n; i++) {
+            returnArr.push(this._deck.shift())
+        }
+        return returnArr;
     }
 
     get deck() {
