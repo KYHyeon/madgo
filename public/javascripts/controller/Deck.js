@@ -19,12 +19,21 @@ export default class Deck {
         // }
     }
 
+    /**
+     * Use the modern version of the Fisher–Yates shuffle algorithm
+     */
     shuffle() {
-
+        for (let i = this._deck.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this._deck[i], this._deck[j]] = [this._deck[j], this._deck[i]];
+        }
     }
 
-    pop() {
-
+    /**
+     * Pop first card and return in deck Array
+     */
+    shift() {
+        return this._deck.shift();
     }
 
     get deck() {
@@ -36,6 +45,7 @@ export default class Deck {
     }
 
     render() {
+        // TODO canvas 종속 제거
         const c = document.getElementById("canvas");
         const ctx = c.getContext("2d");
 
