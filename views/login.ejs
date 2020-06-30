@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 
 <head>
     <title>Madgo Enter Form</title>
@@ -18,27 +18,30 @@
                 </a>
                 <div class="title">
                     <p>MADGO! : Let's play</p>
+                    <% if(username){ %>
+                        <h2>Welcome! <%= username %> (name: <%= name %>)</h2>
+                    <% }else{ %>
+                        <h2> Please Login. </h2>
+                    <% } %>
                 </div>
-                <form id="user1_form" class="form-horizontal" method="POST" action="/process/adduser">
+                <form id="user1_form" class="form-horizontal" method="POST" action="/home/login">
                     <div class="form-group">
-                        <label id="input_user1_lable" for="inputname" class="col-sm-2 control-label">User1 Name
-                            :</label>
+                        <label id="input_user1_lable" for="inputname" class="col-sm-2 control-label">User1 Name :</label>
                         <div class="col-sm-10">
-                            <input type="name" class="form-control" id="user1_id" name="name" placeholder="user1 ID">
+                            <input type="text" required class="form-control" id="user1_id" name="username" placeholder="user1 ID">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-10">
-                            <input type="name" class="form-control" id="user1_pw" name="name" placeholder="user1 PW">
+                            <input type="password" required class="form-control" id="user1_pw" name="password" placeholder="user1 PW">
                         </div>
                     </div>
+                    <button id="user1_btn" type="submit" state="Login" class="btn btn-success">Login</button>
                 </form>
-                <button id="user1_btn" type="button" state = "Login" class="btn btn-success">Login</button>
 
-                <form id="user2_form" class="form-horizontal" method="POST" action="/process/adduser">
+                <form id="user2_form" class="form-horizontal" method="POST" action="">
                     <div class="form-group">
-                        <label id="input_user2_label" for="inputname" class="col-sm-2 control-label">User2 Name
-                            :</label>
+                        <label id="input_user2_label" for="inputname" class="col-sm-2 control-label">User2 Name :</label>
                         <div class="col-sm-10">
                             <input type="name" class="form-control" id="name" name="name" placeholder="user2">
                         </div>
@@ -52,13 +55,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-    <!-- Include JS File Here -->
     <script type="text/javascript" src="javascripts/view/home.js"></script>
 </body>
 

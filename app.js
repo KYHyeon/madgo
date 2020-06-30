@@ -1,7 +1,11 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+
 var cookieParser = require('cookie-parser');
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
+
 var logger = require('morgan');          // log module
 
 var indexRouter = require('./routes/index');
@@ -20,6 +24,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); //정적 파일 제공 절대경로 사용
 
+/*---------session---------*/
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  store : new FileStore()
+}));
 
 /*---------Routing---------*/
 app.use('/', indexRouter);

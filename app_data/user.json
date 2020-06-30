@@ -1,0 +1,10 @@
+{
+	"first_user": {
+		"password": "yslim",
+		"name": "yslim"
+	},
+	"newuser": {
+		"password": "newpass",
+		"name": "charlie"
+	}
+}
