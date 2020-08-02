@@ -1,16 +1,17 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var cookieParser = require('cookie-parser');
-const session = require('express-session');
-const FileStore = require('session-file-store')(session);
 
 var logger = require('morgan');          // log module
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var homeRouter = require('./routes/home');
+
 var app = express();
 
 // view engine setup
@@ -24,19 +25,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); //정적 파일 제공 절대경로 사용
 
-/*---------session---------*/
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  store : new FileStore()
-}));
 
 /*---------Routing---------*/
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/home', homeRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,5 +46,20 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error.html');
 });
+
+// mongodb
+const config = require('./model/config')
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
+
+app.set('jwt-secret', config.secret)
+
+// mongoserver
+mongoose.connect(config.mongodbUri)
+const db = mongoose.connection
+db.on('error', console.error)
+db.once('open', ()=>{
+  console.log('connected to mongodb server')
+})
 
 module.exports = app;
