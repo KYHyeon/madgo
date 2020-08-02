@@ -18,33 +18,48 @@
                 </a>
                 <div class="title">
                     <p>MADGO! : Let's play</p>
+
                     <% if(username){ %>
-                        <h2>Welcome! <%= username %> (name: <%= name %>)</h2>
+                    <script>
+                        // var confirm_alert = confirm("존재하지 않는 회원입니다. 바로 가입하시겠습니까?");
+                        // if (confirm_alert == true) {
+                        //     alert("가입되었습니다.")
+                        // } else if ( confirm_alert == false) {
+                        //     alert("다시 로그인해주세요.");
+                        // }
+                        var alert = alert("존재하지 않는 정보입니다.");
+                    </script>
                     <% }else{ %>
-                        <h2> Please Login. </h2>
+                    <h2> Please Login. </h2>
                     <% } %>
+
                 </div>
-                <form id="user1_form" class="form-horizontal" method="POST" action="/home/login">
+                <!-- <form id="user1_form" class="form-horizontal" method="POST" action="/home/user/login"> -->
+                <form id="user1_form" class="form-horizontal" method="POST">
                     <div class="form-group">
-                        <label id="input_user1_lable" for="inputname" class="col-sm-2 control-label">User1 Name :</label>
+                        <label id="input_user1_lable" for="inputname" class="col-sm-2 control-label">User1 Name
+                            :</label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="user1_id" name="username" placeholder="user1 ID">
+                            <input type="text" required class="form-control" id="user1_id" name="username"
+                                placeholder="user1 ID">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-10">
-                            <input type="password" required class="form-control" id="user1_pw" name="password" placeholder="user1 PW">
+                            <input type="password" required class="form-control" id="user1_pw" name="password"
+                                placeholder="user1 PW">
                         </div>
                     </div>
-                    <button id="user1_btn" type="submit" state="Login" class="btn btn-success">Login</button>
+                    <button id="user1_btn_signin" type="submit" formaction="/home/user/login" class="btn btn-success">Sign in</button>
+                    <button id="user1_btn_signup" type="submit" formaction="/home/user/register" class="btn btn-success">Sign Up</button>
                 </form>
 
-                <form id="user2_form" class="form-horizontal" method="POST" action="">
+                <form id="user2_form" class="form-horizontal" method="POST" action="/home">
                     <div class="form-group">
-                        <label id="input_user2_label" for="inputname" class="col-sm-2 control-label">User2 Name :</label>
+                        <label id="input_user2_label" for="inputname" class="col-sm-2 control-label">User2 Name
+                            :</label>
                         <div class="col-sm-10">
-                            <input type="name" class="form-control" id="name" name="name" placeholder="user2">
-                        </div>
+                            <input type="name" class="form-control" id="name" name="name" placeholder="user2"> </div>
                     </div>
                     <div class="form-group">
                         <div id="startBtn" class="col-sm-offset-2 col-sm-10">

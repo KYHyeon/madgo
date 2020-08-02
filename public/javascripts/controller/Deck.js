@@ -69,7 +69,6 @@ export default class Deck {
                 j = 0;
                 i++;
             }
-
             console.log(card)
             card.render(ctx, (w + 10) * j, (h + 10) * i, w, h);
             j++;
