@@ -49,29 +49,30 @@ export default class Deck {
         this._deck = value;
     }
 
-    render() {
-        // TODO canvas 종속 제거
-        const c = document.getElementById("canvas");
-        const ctx = c.getContext("2d");
+    render(ctx) {
+        var centerPointWidth = 50;
+        var centerPointHeight = 50;
 
-        let i = 0;
-        let j = 0;
+        ctx.fillStyle = "#000000";
+        this.deck[0].render(ctx, (canvas.width / 2) - (centerPointWidth / 2), (canvas.height / 2) - (centerPointHeight / 2), centerPointWidth, centerPointHeight);
+        // let i = 0;
+        // let j = 0;
 
-        const w = 50;
-        const h = 50;
+        // const w = 50;
+        // const h = 50;
 
-        for (let card of this.deck) {
-            if (!card instanceof Card) {
-                console.log("Invalid Type" + card.toString())
-            }
+        // for (let card of this.deck) {
+        //     if (!card instanceof Card) {
+        //         console.log("Invalid Type" + card.toString())
+        //     }
 
-            if (j === 10) {
-                j = 0;
-                i++;
-            }
-            console.log(card)
-            card.render(ctx, (w + 10) * j, (h + 10) * i, w, h);
-            j++;
-        }
+        //     if (j === 10) {
+        //         j = 0;
+        //         i++;
+        //     }
+        //     console.log(card)
+        //     card.render(ctx, (w + 10) * j, (h + 10) * i, w, h);
+        //     j++;
+        // }
     }
 }

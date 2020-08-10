@@ -107,3 +107,4 @@ dist
 /node_modules/
 package-lock.json
 model/config.js
+.DS_Store

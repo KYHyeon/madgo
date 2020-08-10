@@ -38,7 +38,10 @@ export default class Dealer {
         this._userB = userB;
 
         console.log(this._deck)
-        this._deck.render()
+    }
+
+    render(ctx) {
+        this._deck.render(ctx)
     }
 
     shuffle() {
