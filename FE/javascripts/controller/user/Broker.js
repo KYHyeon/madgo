@@ -9,4 +9,8 @@ export default class Broker extends Player {
         this.hand = new Array(this.NUM_INIT_HAND);
         this.foot = this.NUM_INIT_FOOT;
     }
+
+    render(ctx) {
+
+    }
 }
