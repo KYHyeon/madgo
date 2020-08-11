@@ -55,7 +55,17 @@ app.use(bodyParser.json())
 app.set('jwt-secret', config.secret)
 
 // mongoserver
-mongoose.connect(config.mongodbUri)
+mongoose.connect(config.mongodbUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology : true
+})
+/*
+  * DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+     => useNewUrlParser : true
+
+  * DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+     => useUnifiedTopology : true
+*/
 const db = mongoose.connection
 db.on('error', console.error)
 db.once('open', ()=>{

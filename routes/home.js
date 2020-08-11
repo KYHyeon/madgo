@@ -29,8 +29,8 @@ router.get('/', (req, res) => {
 });
 router.post('/', (req,res) => {
   var user = req.body.username;
-  console.log(req.body);
-  console.log(user);
+  console.log("POST : ",req.body);
+  console.log("POST : ",user);
   res.render('login', {username: user});
 })
 router.use('/user', user_auth);
@@ -40,66 +40,5 @@ router.use('/admin', authMiddleware);
 router.use('/admin', admin_auth);
 
 
- 
-  //router.redirect('/user/register')
-  //.then(router.redirect('/user/login'));
-
-  /* information of Login User */
-  // let body = req.body;
-  // let password = body.password;
-  // let username = body.username;
-
-
-  // fs.readFile(__dirname + "/../app_data/user.json", "utf8", function (err, data) {
-  //   var users = JSON.parse(data);
-  //   var result = {};
-
-  //   /* Not detected User */
-  //   if (!users[username]) {
-  //     console.log("not exist user");
-  //     result["success"] = 0;
-  //     result["error"] = "not found";
-  //     res.json(result);
-  //     res.redirect('/home');
-  //     return;
-  //   }
-
-  //   if (users[username]["password"] == password) {
-  //     result["success"] = 1; 
-  //     sess = req.session;
-  //     sess.username = username;
-  //     //sess.name = users[username]["name"];
-  //     console.log("same password");
-  //     console.log(sess);
-  //     console.log(sess.username);
-  //     //res.json(result);
-  //     req.session.save(() => {
-  //       res.redirect('/home');
-  //     });
-  //   } else {  // wrong pw
-  //     result["success"] = 0;
-  //     result["error"] = "incorrect";
-  //     //res.json(result);
-      
-  //     res.redirect('/home');
-  //   }
-  // });
-  
-//})
-
-
-
-// router.post('/login', function (req, res) {
-//   /* information of Login User */
-//   res.redirect('/home');
-// })
-
-// router.post('/logout', function (req, res) {
-//   res.redirect('/home');
-// })
-
-// router.post('/register', function (req, res){
-//   res.send('register');
-// })
 
 module.exports = router;
