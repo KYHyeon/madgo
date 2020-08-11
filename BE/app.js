@@ -15,7 +15,7 @@ var homeRouter = require('./routes/home');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../FE/views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
@@ -23,7 +23,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public'))); //정적 파일 제공 절대경로 사용
+app.use(express.static(path.join(__dirname, '../FE'))); //정적 파일 제공 절대경로 사용
 
 
 /*---------Routing---------*/
@@ -55,7 +55,17 @@ app.use(bodyParser.json())
 app.set('jwt-secret', config.secret)
 
 // mongoserver
-mongoose.connect(config.mongodbUri)
+mongoose.connect(config.mongodbUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology : true
+})
+/*
+  * DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+     => useNewUrlParser : true
+
+  * DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+     => useUnifiedTopology : true
+*/
 const db = mongoose.connection
 db.on('error', console.error)
 db.once('open', ()=>{
