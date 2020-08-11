@@ -15,19 +15,19 @@ export default class User extends Player {
         // var
 
         if (id == 'A') {
-            this.handPosition = [canvas.width / 3 * 2, 30]
+            // TODO canvas.width 가 왜 실제의 2배 사이즈 인지?
+            this.handPosition = [canvas.width / 3, 30]
         } else {
-            this.handPosition = [canvas.width / 3 * 2, canvas.height - 150]
+            this.handPosition = [canvas.width / 3, 450]
         }
     }
 
-    renderHand(ctx) {
+    renderHand() {
         const paddingTop = 30
         const marginCard = 10
         for (var i = 0; i < 2; i++) {
             for (var j = 0; j < 5; j++) {
                 new Card(1, 1).render(
-                    ctx,
                     this.handPosition[0] + 60 * j,
                     this.handPosition[1] + 60 * i
                 )
@@ -35,12 +35,12 @@ export default class User extends Player {
         }
     }
 
-    renderFoot(ctx) {
+    renderFoot() {
 
     }
 
-    render(ctx) {
-        this.renderHand(ctx)
-        this.renderFoot(ctx)
+    render() {
+        this.renderHand()
+        this.renderFoot()
     }
 }

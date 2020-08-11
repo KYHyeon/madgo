@@ -11,12 +11,15 @@ export default class Card {
         this.isFaceUp = true;
     }
 
-    render(ctx, x, y, w = 50, h = 50) {
-        ctx.beginPath();
-        ctx.rect(x, y, w, h);
-        ctx.stroke();
+    render(x, y, w = 50, h = 50) {
+        console.log(canvas.width)
+        var rectangle = new paper.Rectangle(x, y, w, h);
+        var path = new paper.Path.Rectangle(rectangle);
+        console.log(rectangle)
+        path.fillColor = '#E13229';
+
         if (this.isFaceUp) {
-            ctx.strokeText("" + this._month + this._number, x + w / 2, y + h / 2)
+            // ctx.strokeText("" + this._month + this._number, x + w / 2, y + h / 2)
         }
     }
 }

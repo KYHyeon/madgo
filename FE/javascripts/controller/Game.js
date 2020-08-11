@@ -10,15 +10,16 @@ export default class Game {   // In index, game.start => Generating
 
     _dealer;
 
-    ctx = document.getElementById("canvas").getContext("2d");
-
     constructor() {
-        console.log("Game 생성")
         this.init()
     }
 
     init() {
-        $.when(Labels.getLabelJson()).done(()=> {   //lazy init
+        console.log("Game 생성")
+        const canvas = document.getElementById('canvas');
+        paper.setup(canvas)
+
+        $.when(Labels.getLabelJson()).done(() => {   //lazy init
             this.userA = new User('A');
             this.userB = new User('B');
             this.broker = new Broker;
@@ -30,9 +31,10 @@ export default class Game {   // In index, game.start => Generating
     }
 
     render() {
-        this.ctx.beginPath();
-        this.ctx.rect(0, 0, canvas.width, canvas.height);
-        this.ctx.stroke()
+        var rectangle = new paper.Rectangle(0, 0, canvas.width, canvas.height);
+        var path = new paper.Path.Rectangle(rectangle);
+        path.fillColor = '#2F6118';
+        // path.selected = true;
 
         this.userA.render(this.ctx)
         this.userB.render(this.ctx)

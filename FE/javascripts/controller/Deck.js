@@ -53,8 +53,10 @@ export default class Deck {
         var centerPointWidth = 50;
         var centerPointHeight = 50;
 
-        ctx.fillStyle = "#000000";
-        this.deck[0].render(ctx, (canvas.width / 2) - (centerPointWidth / 2), (canvas.height / 2) - (centerPointHeight / 2), centerPointWidth, centerPointHeight);
+        this.deck[0].render((canvas.width / 4) - (centerPointWidth / 2), (canvas.height / 4) - (centerPointHeight / 2), centerPointWidth, centerPointHeight);
+
+        // ctx.fillStyle = "#000000";
+        // this.deck[0].render(ctx, (canvas.width / 2) - (centerPointWidth / 2), (canvas.height / 2) - (centerPointHeight / 2), centerPointWidth, centerPointHeight);
         // let i = 0;
         // let j = 0;
 
