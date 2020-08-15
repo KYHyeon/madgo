@@ -88,7 +88,6 @@ export default class User extends Player {
     }
 
     render() {
-        console.log(self.id)
         this.renderHand()
         this.renderFoot()
         this.renderProfile()

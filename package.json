@@ -1,13 +1,11 @@
 {
-  "name": "untitled",
-  "version": "0.0.0",
+  "name": "madgo",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "test": "jest"
+    "start": "nodemon ./BE/bin/www"
   },
   "dependencies": {
-    "@jest/globals": "^26.0.1",
     "body-parser": "^1.19.0",
     "clean-css": ">=4.1.11",
     "connect-mongo": "^3.2.0",
@@ -27,18 +25,5 @@
     "nodemon": "^2.0.4",
     "socket.io": "^2.3.0",
     "ws": "^7.3.1"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.10.3",
-    "babel-jest": "^26.0.1",
-    "jest": "^26.0.1",
-    "jquery": "^3.5.1"
-  },
-  "jest": {
-    "type": "module",
-    "verbose": true,
-    "setupFiles": [
-      "./test-env.js"
-    ]
   }
 }
