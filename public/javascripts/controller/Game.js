@@ -34,7 +34,9 @@ export default class Game {   // In index, game.start => Generating
         this.ctx.rect(0, 0, canvas.width, canvas.height);
         this.ctx.stroke()
 
+        console.log('A render', this.userA)
         this.userA.render(this.ctx)
+        console.log('B render', this.userB)
         this.userB.render(this.ctx)
         this.broker.render(this.ctx)
         this.dealer.render(this.ctx)

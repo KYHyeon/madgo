@@ -5,42 +5,93 @@ export default class User extends Player {
     NUM_INIT_HAND = 10
     NUM_INIT_FOOT = 0
 
-    handPosition;
-    footPosition;
+    id
 
     constructor(id) {
         super();
         this.hand = new Array(this.NUM_INIT_HAND);
         this.foot = this.NUM_INIT_FOOT;
         // var
-
-        if (id == 'A') {
-            this.handPosition = [canvas.width / 3 * 2, 30]
-        } else {
-            this.handPosition = [canvas.width / 3 * 2, canvas.height - 150]
-        }
+        this.id = id
     }
 
-    renderHand(ctx) {
-        const paddingTop = 30
-        const marginCard = 10
+    renderHandA(ctx) {
+        const width = 41
+        const height = 61
+        const x = 1630
+        const y = 20
+        const marginRight = 16
+        const marginBottom = 11
         for (var i = 0; i < 2; i++) {
             for (var j = 0; j < 5; j++) {
-                new Card(1, 1).render(
-                    ctx,
-                    this.handPosition[0] + 60 * j,
-                    this.handPosition[1] + 60 * i
-                )
+                new Card(1, 1).render(ctx, x + (width + marginRight) * j, y + (height + marginBottom) * i, width, height)
             }
         }
     }
 
-    renderFoot(ctx) {
+    renderHandB(ctx) {
+        const width = 170
+        const height = 255
+        const x = 17
+        const y = 809
+        const marginRight = 20
+        for (var i = 0; i < 10; i++) {
+            new Card(1, 1).render(ctx, x + (width + marginRight) * i, y, width, height)
+        }
+    }
+
+
+    renderHand(ctx) {
+        if (this.id == 'A') {
+            this.renderHandA(ctx)
+        } else {
+            this.renderHandB(ctx)
+        }
 
     }
 
+    renderFoot(ctx) {
+        const width = 74
+        const height = 111
+        const x = 17
+        const y = this.id == 'A' ? 20 : 678
+        const marginRight = 20
+
+        for (var i = 0; i < 17; i++) {
+            new Card(1, 1).render(ctx, x + (width + marginRight) * i, y, width, height)
+        }
+    }
+
+    renderProfile(ctx) {
+        const width = 271
+        const height = 133
+        const x = 1630
+        const y = this.id == 'A' ? 171 : 656
+
+        console.log(x, y)
+
+        new Card(1, 1).render(ctx, x, y, width, height)
+    }
+
+    renderScore(ctx) {
+        const width = 271
+        const height = 133
+        const x = 1630
+        let y = 0
+        if (this.id == 'A') {
+            y = 332.7
+        } else {
+            y = 494.3
+        }
+
+        new Card(1, 1).render(ctx, x, y, width, height)
+    }
+
     render(ctx) {
+        console.log(self.id)
         this.renderHand(ctx)
         this.renderFoot(ctx)
+        this.renderProfile(ctx)
+        this.renderScore(ctx)
     }
 }
