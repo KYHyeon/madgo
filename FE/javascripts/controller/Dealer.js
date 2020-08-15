@@ -40,8 +40,8 @@ export default class Dealer {
         console.log(this._deck)
     }
 
-    render(ctx) {
-        this._deck.render(ctx)
+    render() {
+        this._deck.render()
     }
 
     shuffle() {

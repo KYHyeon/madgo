@@ -8,7 +8,30 @@
     <link rel="stylesheet" href="/stylesheets/account.css" />
 
 </head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="javascripts/view/home.js"></script>
+<!-- 
+<script>
+  
+  var socket = io.connect("http://localhost:3000", {path: "/socket.io"});
+  socket.on('echo', function(data){
+      console.log("Data : "+data);
+      writeToScreen("받은 메시지 : "+data);
+  });
+  function sendMessage(){
+      //mss = document.getElementById("message").value;
+      mss = "mememememsage";
+      socket.emit("ms", mss);
+  };
+  function writeToScreen(message){
+    console.log(message);  
+    // var pre = document.createElement("p");
+      // pre.style.wordWrap = "break-word";
+      // pre.innerHTML = message;
+      // output.appendChild(pre);
+  }
 
+</script> -->
 <body>
     <div class="container">
         <div class="content-box">
@@ -34,7 +57,6 @@
                     <% } %>
 
                 </div>
-                <!-- <form id="user1_form" class="form-horizontal" method="POST" action="/home/user/login"> -->
                 <form id="user1_form" class="form-horizontal" method="POST">
                     <div class="form-group">
                         <label id="input_user1_lable" for="inputname" class="col-sm-2 control-label">User1 Name
@@ -54,23 +76,25 @@
                     <button id="user1_btn_signup" type="submit" formaction="/home/user/register" class="btn btn-success">Sign Up</button>
                 </form>
 
-                <form id="user2_form" class="form-horizontal" method="POST" action="/home">
+                <form id="user2_form" onSubmit="return false" class="form-horizontal" method="POST" action="/home">
                     <div class="form-group">
-                        <label id="input_user2_label" for="inputname" class="col-sm-2 control-label">User2 Name
-                            :</label>
+                        <label id="input_user2_label" for="inputname" class="col-sm-2 control-label">User2 Name :</label>
                         <div class="col-sm-10">
                             <input type="name" class="form-control" id="name" name="name" placeholder="user2"> </div>
                     </div>
                     <div class="form-group">
                         <div id="startBtn" class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default" id="start_btn">Game Start</button>
+                            <!-- <button type="submit" class="btn btn-default" id="start_btn">Game Start</button> -->
+                            <button id="connectingBtn" class="btn btn-default" href="#">Game Start</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="javascripts/view/home.js"></script>
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <!-- <script src="../node_modules/socket.io-client/dist/socket.io.js"></script> -->
+    
 </body>
 
 </html>

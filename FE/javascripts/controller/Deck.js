@@ -49,7 +49,7 @@ export default class Deck {
         this._deck = value;
     }
 
-    render(ctx) {
+    render() {
         var width = 70
         var height = 111
 
@@ -58,9 +58,9 @@ export default class Deck {
             [361, 347], [571, 347], [991, 347], [1201, 347],
             [466, 512], [676, 512], [886, 512], [1096, 512]
         ].forEach((point) => {
-            new Card(1, 1).render(ctx, point[0], point[1], width, height)
+            new Card(1, 1).render(point[0], point[1], width, height)
         })
 
-        this.deck[0].render(ctx, 781, 347, 70, 111)
+        this.deck[0].render(781, 347, 70, 111)
     }
 }

@@ -11,12 +11,13 @@ export default class Card {
         this.isFaceUp = true;
     }
 
-    render(ctx, x, y, w = 50, h = 50) {
-        ctx.beginPath();
-        ctx.rect(x, y, w, h);
-        ctx.stroke();
+    render(x, y, w = 50, h = 50) {
+        var rectangle = new paper.Rectangle(x, y, w, h);
+        var path = new paper.Path.Rectangle(rectangle);
+        path.fillColor = '#cb3c3c'
+
         if (this.isFaceUp) {
-            ctx.strokeText("" + this._month + this._number, x + w / 2, y + h / 2)
+            // TODO: 카드의 앞면이 보이게 그린다.
         }
     }
 }

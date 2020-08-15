@@ -10,7 +10,7 @@ export default class Broker extends Player {
         this.foot = this.NUM_INIT_FOOT;
     }
 
-    render(ctx) {
+    render() {
 
     }
 }
