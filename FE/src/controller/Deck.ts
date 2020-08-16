@@ -8,12 +8,12 @@ export default class Deck {
     constructor() {
         let cnt = 0;
         for (let month = 1; month <= 12; month++) {
-            for (let number = 1; number <= 4; number++) {
+            for (let order = 1; order <= 4; order++) {
                 // console.log(month + " " + number)
-                this.deck[cnt++] = new Card(month, number);
+                this.deck[cnt++] = new Card(month, order);
             }
         }
-        //TODO Special card 처리
+        // TODO Special card 처리
         // for (let i = 0; i < this.NUM_SPECIAL_CARD; i++) {
         //     this.deck.push(new Card())
         // }
@@ -33,8 +33,8 @@ export default class Deck {
      * Pop first card and return in deck Array
      * param n: shift n cards
      */
-    shift(n) {
-        let returnArr = []
+    shift(n: number) {
+        const returnArr = []
         for (let i = 0; i < n; i++) {
             returnArr.push(this._deck.shift())
         }
@@ -49,30 +49,19 @@ export default class Deck {
         this._deck = value;
     }
 
-    render(ctx) {
-        var centerPointWidth = 50;
-        var centerPointHeight = 50;
+    render() {
+        const width = 70
+        const height = 111
 
-        ctx.fillStyle = "#000000";
-        this.deck[0].render(ctx, (canvas.width / 2) - (centerPointWidth / 2), (canvas.height / 2) - (centerPointHeight / 2), centerPointWidth, centerPointHeight);
-        // let i = 0;
-        // let j = 0;
+        const points = [
+            [466, 182], [676, 182], [886, 182], [1096, 182],
+            [361, 347], [571, 347], [991, 347], [1201, 347],
+            [466, 512], [676, 512], [886, 512], [1096, 512]
+        ]
+        points.forEach((point) => {
+            new Card(1, 1).render(point[0], point[1], width, height)
+        })
 
-        // const w = 50;
-        // const h = 50;
-
-        // for (let card of this.deck) {
-        //     if (!card instanceof Card) {
-        //         console.log("Invalid Type" + card.toString())
-        //     }
-
-        //     if (j === 10) {
-        //         j = 0;
-        //         i++;
-        //     }
-        //     console.log(card)
-        //     card.render(ctx, (w + 10) * j, (h + 10) * i, w, h);
-        //     j++;
-        // }
+        this.deck[0].render(781, 347, 70, 111)
     }
 }

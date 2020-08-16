@@ -1,6 +1,14 @@
 // import Labels from "./Labels.js"
 export default class Label {
-    constructor(data) {
+    id: number;
+    month: any;
+    scores: any;
+    light: any;
+    rgb: any;
+    band: any;
+    cater: any;
+    animal: any;
+    constructor(data: { id: number; month: any; scores: any; light: any; rgb: any; band: any; cater: any; animal: any; }) {
         // console.log(data)
         this.id = data.id;
         this.month = data.month;

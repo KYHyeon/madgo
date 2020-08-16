@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+      "outDir": "javascripts",
+      // "allowJs": true,
+      "target": "ES2015",
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "module": "ES6",
+      "allowSyntheticDefaultImports": true
+  },
+  "include": [
+      "src/**/*"
+  ],
+  "typeRoots": [
+    "./node_modules/@types"
+  ]
+}

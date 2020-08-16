@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
   console.log("loaded");
-  document.getElementById("connectingBtn").addEventListener("click", ()=>{
+  document.getElementById("connectingBtn")!.addEventListener("click", ()=>{
     console.log("clicked");
   })
 })

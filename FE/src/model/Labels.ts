@@ -32,6 +32,7 @@ export default class Labels {
             // console.log(json["label"])
             for (const value of json["label"]) {
                 $this.data[value.id] = value.information;
+                $this.data[value.id].id = value.id
                 // console.log(value.id,$this.data[value.id])
             }
 
@@ -43,7 +44,7 @@ export default class Labels {
         
     }
 
-    static make_label(id) {
+    static make_label(id: number) {
         // console.log(id)
         if (this.init) {
             // console.log(this.data[id])
