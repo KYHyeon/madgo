@@ -46,10 +46,6 @@ export default class Dealer {
         console.log(this._deck)
     }
 
-    render() {
-        this._deck.render()
-    }
-
     shuffle() {
         this._deck.shuffle();
     }

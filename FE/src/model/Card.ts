@@ -1,5 +1,5 @@
 import Labels from "./Labels.js";
-import Label from "./Label"
+import Label from "./Label.js"
 
 export default class Card {
     _special = false;
@@ -16,20 +16,5 @@ export default class Card {
         this.isFaceUp = true;
     }
 
-    render(x: number, y: number, w = 50, h = 50) {
-        const path = new paper.Path.Rectangle(x, y, w, h);
-        path.fillColor = '#cb3c3c'
-        path.onMouseDown = function(event: any) {
-            console.log(this)
-        }
-
-        if (this.isFaceUp) {
-            // 카드의 앞면이 보이게 그린다.
-            const text = new paper.PointText(new paper.Point(x + w / 2 - 5, y + h / 2));
-            text.fillColor = 'black';
-
-            // Set the content of the text item:
-            text.content = this.label.id;
-        }
-    }
+    static dummy = new Card(1,1)
 }

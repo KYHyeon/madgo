@@ -1,3 +1,6 @@
-import Game from "./controller/Game.js";
+import MadgoView from "./view/MadgoView.js"
+import Labels from "./model/Labels.js"
 
-const game = new Game();
+$.when(Labels.getLabelJson()).done(() => {   // lazy init
+    new MadgoView().render()
+})

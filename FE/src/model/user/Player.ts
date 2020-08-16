@@ -1,4 +1,4 @@
-import Card from "../../model/Card";
+import Card from "../Card.js";
 
 export default class Player {
     get hand() {

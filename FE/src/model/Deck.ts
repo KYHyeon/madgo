@@ -1,4 +1,4 @@
-import Card from '../model/Card.js'
+import Card from './Card.js'
 
 export default class Deck {
     NUM_INIT_DECK = 55;
@@ -49,19 +49,4 @@ export default class Deck {
         this._deck = value;
     }
 
-    render() {
-        const width = 70
-        const height = 111
-
-        const points = [
-            [466, 182], [676, 182], [886, 182], [1096, 182],
-            [361, 347], [571, 347], [991, 347], [1201, 347],
-            [466, 512], [676, 512], [886, 512], [1096, 512]
-        ]
-        points.forEach((point) => {
-            new Card(1, 1).render(point[0], point[1], width, height)
-        })
-
-        this.deck[0].render(781, 347, 70, 111)
-    }
 }
