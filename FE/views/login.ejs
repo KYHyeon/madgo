@@ -8,30 +8,10 @@
     <link rel="stylesheet" href="/stylesheets/account.css" />
 
 </head>
-    <script src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="javascripts/view/home.js"></script>
-<!-- 
-<script>
   
-  var socket = io.connect("http://localhost:3000", {path: "/socket.io"});
-  socket.on('echo', function(data){
-      console.log("Data : "+data);
-      writeToScreen("받은 메시지 : "+data);
-  });
-  function sendMessage(){
-      //mss = document.getElementById("message").value;
-      mss = "mememememsage";
-      socket.emit("ms", mss);
-  };
-  function writeToScreen(message){
-    console.log(message);  
-    // var pre = document.createElement("p");
-      // pre.style.wordWrap = "break-word";
-      // pre.innerHTML = message;
-      // output.appendChild(pre);
-  }
+    <!-- <script type="text/javascript" src="javascripts/view/home.js"></script> -->
 
-</script> -->
+
 <body>
     <div class="container">
         <div class="content-box">
@@ -80,7 +60,7 @@
                     <div class="form-group">
                         <label id="input_user2_label" for="inputname" class="col-sm-2 control-label">User2 Name :</label>
                         <div class="col-sm-10">
-                            <input type="name" class="form-control" id="name" name="name" placeholder="user2"> </div>
+                            <input type="name" class="form-control" id="name" name="name" required="true" placeholder="user2"> </div>
                     </div>
                     <div class="form-group">
                         <div id="startBtn" class="col-sm-offset-2 col-sm-10">

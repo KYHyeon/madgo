@@ -4,6 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //TODO : next 콜백함수 없음.
+  console.log(req);
   res.render('index.html');
 });
 
