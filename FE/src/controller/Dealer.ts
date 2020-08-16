@@ -1,6 +1,12 @@
 import Deck from './Deck.js'
+import Broker from './user/Broker.js';
+import User from './user/User.js';
 
 export default class Dealer {
+    _broker: Broker;
+    _userA: User;
+    _userB: User;
+    _deck: Deck;
     get broker() {
         return this._broker;
     }
@@ -28,8 +34,8 @@ export default class Dealer {
     // 1. 패 52장 만든다.
     // 2. 셔플한다.
     // 3. 나눠준다.
-    constructor(broker, userA, userB) {
-        //Todo : Deck(class) => 각각의 패에 대한 정보 가지고 있느다.
+    constructor(broker: Broker, userA: User, userB: User) {
+        // Todo : Deck(class) => 각각의 패에 대한 정보 가지고 있느다.
         // deck.shuffle();
         // deck.pop(n);
         this._deck = new Deck();
@@ -48,7 +54,7 @@ export default class Dealer {
         this._deck.shuffle();
     }
 
-    hand_out(destination, n) {
+    hand_out(destination: { hand: (arg0: any[]) => void; }, n: any) {
         destination.hand(this._deck.shift(n));
     }
 }

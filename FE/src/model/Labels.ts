@@ -44,7 +44,7 @@ export default class Labels {
         
     }
 
-    static make_label(id) {
+    static make_label(id: number) {
         // console.log(id)
         if (this.init) {
             // console.log(this.data[id])

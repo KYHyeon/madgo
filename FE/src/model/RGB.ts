@@ -1,5 +1,8 @@
 export default class RGB {
-    constructor(r, g, b) {
+    r: any;
+    g: any;
+    b: any;
+    constructor(r: any, g: any, b: any) {
         this.r = r;
         this.g = g;
         this.b = b;
