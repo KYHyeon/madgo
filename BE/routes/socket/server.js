@@ -13,6 +13,7 @@ module.exports = function( _server ){
 
         console.log(ip+"의 새로운 유저 접속");
         socket.emit('STC', "Hello"+user1);
+
         //room
         var socketRoom = {};
         socket.on('requestEnterRoom', function(data){
