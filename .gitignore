@@ -108,3 +108,5 @@ dist
 package-lock.json
 model/config.js
 .DS_Store
+
+FE/javascripts

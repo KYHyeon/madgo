@@ -1,3 +1,5 @@
+import Card from "../../model/Card";
+
 export default class Player {
     get hand() {
         return this._hand;
@@ -15,6 +17,6 @@ export default class Player {
         this._foot = value;
     }
 
-    _hand = null;
-    _foot = null;
+    _hand: Card[]
+    _foot: Card[]
 }

@@ -5,12 +5,12 @@ export default class User extends Player {
     NUM_INIT_HAND = 10
     NUM_INIT_FOOT = 0
 
-    id
+    id: string
 
-    constructor(id) {
+    constructor(id: string) {
         super();
-        this.hand = new Array(this.NUM_INIT_HAND);
-        this.foot = this.NUM_INIT_FOOT;
+        this.hand = new Array<Card>(this.NUM_INIT_HAND);
+        this.foot = new Array<Card>(this.NUM_INIT_FOOT);
         // var
         this.id = id
     }
@@ -22,9 +22,14 @@ export default class User extends Player {
         const y = 20
         const marginRight = 16
         const marginBottom = 11
-        for (var i = 0; i < 2; i++) {
-            for (var j = 0; j < 5; j++) {
-                new Card(1, 1).render(x + (width + marginRight) * j, y + (height + marginBottom) * i, width, height)
+        for (let i = 0; i < 2; i++) {
+            for (let j = 0; j < 5; j++) {
+                new Card(1, 1).render(
+                    x + (width + marginRight) * j,
+                    y + (height + marginBottom) * i,
+                    width,
+                    height
+                )
             }
         }
     }
@@ -35,14 +40,14 @@ export default class User extends Player {
         const x = 17
         const y = 809
         const marginRight = 20
-        for (var i = 0; i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
             new Card(1, 1).render(x + (width + marginRight) * i, y, width, height)
         }
     }
 
 
     renderHand() {
-        if (this.id == 'A') {
+        if (this.id === 'A') {
             this.renderHandA()
         } else {
             this.renderHandB()
@@ -54,10 +59,10 @@ export default class User extends Player {
         const width = 74
         const height = 111
         const x = 17
-        const y = this.id == 'A' ? 20 : 678
+        const y = this.id === 'A' ? 20 : 678
         const marginRight = 20
 
-        for (var i = 0; i < 17; i++) {
+        for (let i = 0; i < 17; i++) {
             new Card(1, 1).render(x + (width + marginRight) * i, y, width, height)
         }
     }
@@ -66,7 +71,7 @@ export default class User extends Player {
         const width = 271
         const height = 133
         const x = 1630
-        const y = this.id == 'A' ? 171 : 656
+        const y = this.id === 'A' ? 171 : 656
 
         console.log(x, y)
 
@@ -78,7 +83,7 @@ export default class User extends Player {
         const height = 133
         const x = 1630
         let y = 0
-        if (this.id == 'A') {
+        if (this.id === 'A') {
             y = 332.7
         } else {
             y = 494.3

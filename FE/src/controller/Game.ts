@@ -4,11 +4,11 @@ import Dealer from './Dealer.js'
 import Labels from '../model/Labels.js'
 
 export default class Game {   // In index, game.start => Generating
-    _userA;
-    _userB;
-    _broker;
+    _userA: User;
+    _userB: User;
+    _broker: Broker;
 
-    _dealer;
+    _dealer: Dealer;
 
     constructor() {
         this.init()
@@ -19,7 +19,7 @@ export default class Game {   // In index, game.start => Generating
         const canvas = document.getElementById('canvas');
         paper.setup(canvas)
 
-        $.when(Labels.getLabelJson()).done(() => {   //lazy init
+        $.when(Labels.getLabelJson()).done(() => {   // lazy init
             this.userA = new User('A');
             this.userB = new User('B');
             this.broker = new Broker;
