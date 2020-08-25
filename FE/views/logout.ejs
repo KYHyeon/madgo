@@ -7,40 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/account.css" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
 </head>
-<script>
-    $(document).ready(function(){
-        $("#connectingBtn").click(function(){
-            console.log("clicked");
-            var socket = io.connect("http://localhost:3000", {
-                path: "/socket.io"
-            });
-            socket.emit("user1", username);
-            //Server To Client  Msg
-            socket.on('STC', function(data){
-                console.log("server : ");
-                writeToScreen("받은 메시지 : "+data);
-            });
-            function sendMessage(){
-                //mss = document.getElementById("message").value;
-                mss = "mememememsage";
-                socket.emit("ms", mss);
-            };
-            function writeToScreen(message){
-                console.log(message);  
-                // var pre = document.createElement("p");
-                // pre.style.wordWrap = "break-word";
-                // pre.innerHTML = message;
-                // output.appendChild(pre);
-            }
-
-        })
-    
-    })
-    
-
-</script>
 <body>
     <div class="container">
         <div class="content-box">

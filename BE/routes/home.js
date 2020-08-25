@@ -1,8 +1,11 @@
+//import roomDTO from '../model/roomDTO'
+const roomDTO = require('../model/userManager');
 var express = require('express');
 var router = express.Router();
 const authMiddleware = require('./authentication/middlewares/auth');
 const admin_auth = require('./admin');
 const user_auth = require('./authentication');
+
 
 router.get('/', (req, res) => {
   console.log("======================");
@@ -10,8 +13,9 @@ router.get('/', (req, res) => {
   console.log("home main : ");
   console.log(req.query);
   console.log(req.query.Login);
+  var room = new roomDTO;
   var login = req.query.Login;
-
+  console.log("room : "+room.roomInfo());
   if(login === undefined){  // main
     console.log("------------");
     res.render('login', {username : ''});
@@ -33,12 +37,13 @@ router.post('/', (req,res) => {
   console.log("POST : ",user);
   res.render('login', {username: user});
 })
-router.use('/user', user_auth);
 
+
+router.use('/user', user_auth);
 
 router.use('/admin', authMiddleware);
 router.use('/admin', admin_auth);
 
-
+router.use('/room', roomService);
 
 module.exports = router;
