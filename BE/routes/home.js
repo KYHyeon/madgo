@@ -3,6 +3,10 @@ var router = express.Router();
 const authMiddleware = require('./authentication/middlewares/auth');
 const admin_auth = require('./admin');
 const user_auth = require('./authentication');
+<<<<<<< Updated upstream
+=======
+const roomService = require('./roomService');
+>>>>>>> Stashed changes
 
 router.get('/', (req, res) => {
   console.log("======================");
@@ -11,7 +15,10 @@ router.get('/', (req, res) => {
   console.log(req.query);
   console.log(req.query.Login);
   var login = req.query.Login;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   if(login === undefined){  // main
     console.log("------------");
     res.render('login', {username : ''});
