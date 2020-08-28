@@ -3,6 +3,7 @@ var router = express.Router();
 const authMiddleware = require('./authentication/middlewares/auth');
 const admin_auth = require('./admin');
 const user_auth = require('./authentication');
+const roomService = require('./roomService');
 
 router.get('/', (req, res) => {
   console.log("======================");
@@ -39,6 +40,6 @@ router.use('/user', user_auth);
 router.use('/admin', authMiddleware);
 router.use('/admin', admin_auth);
 
-
+router.use('/room', roomService);
 
 module.exports = router;
