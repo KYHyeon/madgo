@@ -106,7 +106,7 @@ dist
 .idea/
 /node_modules/
 package-lock.json
-model/config.js
+BE/model/config.js
 .DS_Store
 
 FE/javascripts
