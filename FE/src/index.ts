@@ -1,8 +1,8 @@
-// import Game from "./controller/Game.js";
+import Game from "./controller/Game.js";
 
 import { isEmptyObject } from "jquery";
 
-// const game = new Game();
+const game = new Game();
 
 // function getQuery(){
 //     var query = document.location.href.split('?')[1]; // query in URL
@@ -45,9 +45,6 @@ import { isEmptyObject } from "jquery";
 
 // })
 
-<<<<<<< Updated upstream
-const game = new Game();
-=======
 
 function getQuery(){
     var query = document.location.href.split('?')[1]; // query in URL
@@ -110,4 +107,3 @@ function msgOut(msg : string){
     )
 }
 
->>>>>>> Stashed changes
