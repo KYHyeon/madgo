@@ -9,4 +9,10 @@ router.get('/', function(req, res, next) {
   res.render('index.html');
 });
 
+/* TEST */
+router.get('/test', function(req, res, next) {
+  res.render('test',{});
+});
+
+
 module.exports = router;

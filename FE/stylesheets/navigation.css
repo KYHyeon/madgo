@@ -1,0 +1,29 @@
+ul {text-align : left} body {margin : 0}
+#body{
+    background: linear-gradient(to right,yellowgreen, rgb(51, 126, 49));
+    flex-direction: row;
+    justify-content: space-between;
+    align-items : center;
+    height:10%;
+    padding : 0em 1em 0em 0em;
+}
+#navigation_web > div{
+    max-height:100%;
+}
+
+/* nav_left */
+
+.arrow{
+    vertical-align: middle;
+    max-width : 30%;
+    height : auto !important;
+}
+
+/* nav_right */
+.nav_right{
+    height : 100%;
+    
+}
+#chat{    
+    color : white
+}
