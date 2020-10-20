@@ -49,17 +49,25 @@ export default class Deck {
         this._deck = value;
     }
 
+    points = [
+        [466, 182], [676, 182], [886, 182], [1096, 182],
+        [361, 347], [571, 347], [991, 347], [1201, 347],
+        [466, 512], [676, 512], [886, 512], [1096, 512]
+    ]
+
     render() {
         const width = 70
         const height = 111
 
-        const points = [
-            [466, 182], [676, 182], [886, 182], [1096, 182],
-            [361, 347], [571, 347], [991, 347], [1201, 347],
-            [466, 512], [676, 512], [886, 512], [1096, 512]
-        ]
-        points.forEach((point) => {
-            new Card(1, 1).render(point[0], point[1], width, height)
+        let count = 0
+        this.points.forEach((point) => {
+            // new Card(1, 1).render(point[0], point[1], width, height)
+            let card = new Card(1,1)
+            card.render(781, 347, width, height)
+            setTimeout(() => {
+                card.move(new paper.Point(point[0], point[1]))
+            }, 200 * count);
+            count += 1;
         })
 
         this.deck[0].render(781, 347, 70, 111)
